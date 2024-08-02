@@ -1,0 +1,3 @@
+cd /path/to/RiyaMahanty_5021127
+javac -d . Week_1/DesignPattern_and_Principles/_01_Answer/Logger.java Week_1/DesignPattern_and_Principles/_01_Answer/Test.java
+java Week_1.DesignPattern_and_Principles._01_Answer.Test

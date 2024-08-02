@@ -10,6 +10,10 @@ public class Product {
         this.category = category;
     }
 
+    public Product(String id, String name, int quantity, double price) {
+        //TODO Auto-generated constructor stub
+    }
+
     public String getProductId() {
         return productId;
     }
