@@ -1,13 +1,5 @@
-/*Exercise 4: Functions
-
-Scenario 1: Calculate the age of customers for eligibility checks.
-o	Question: Write a function CalculateAge that takes a customer's date of birth as input and returns their age in years.
-
-Scenario 2: The bank needs to compute the monthly installment for a loan.
-o	Question: Write a function CalculateMonthlyInstallment that takes the loan amount, interest rate, and loan duration in years as input and returns the monthly installment amount.
-
-Scenario 3: Check if a customer has sufficient balance before making a transaction.
-o	Question: Write a function HasSufficientBalance that takes an account ID and an amount as input and returns a boolean indicating whether the account has at least the specified amount.*/
+// Scenario 1: Calculate the age of customers for eligibility checks.
+// o	Question: Write a function CalculateAge that takes a customer's date of birth as input and returns their age in years.
 
 CREATE OR REPLACE FUNCTION CalculateAge(p_DOB DATE) 
 RETURN NUMBER IS
@@ -17,6 +9,11 @@ BEGIN
     RETURN v_Age;
 END CalculateAge;
 /
+
+
+// Scenario 2: The bank needs to compute the monthly installment for a loan.
+// o	Question: Write a function CalculateMonthlyInstallment that takes the loan amount, interest rate, and loan duration in years as input and returns the monthly installment amount.
+
 CREATE OR REPLACE FUNCTION CalculateMonthlyInstallment(
     p_LoanAmount NUMBER,
     p_AnnualInterestRate NUMBER,
@@ -39,6 +36,11 @@ BEGIN
     RETURN v_MonthlyInstallment;
 END CalculateMonthlyInstallment;
 /
+
+
+// Scenario 3: Check if a customer has sufficient balance before making a transaction.
+// o	Question: Write a function HasSufficientBalance that takes an account ID and an amount as input and returns a boolean indicating whether the account has at least the specified amount.
+
 CREATE OR REPLACE FUNCTION HasSufficientBalance(
     p_AccountID NUMBER,
     p_Amount NUMBER

@@ -1,11 +1,5 @@
-/*Exercise 7: Packages
-
-Scenario 1: Group all customer-related procedures and functions into a package.
-o	Question: Create a package CustomerManagement with procedures for adding a new customer, updating customer details, and a function to get customer balance.
-Scenario 2: Create a package to manage employee data.
-o	Question: Write a package EmployeeManagement with procedures to hire new employees, update employee details, and a function to calculate annual salary.
-Scenario 3: Group all account-related operations into a package.
-o	Question: Create a package AccountOperations with procedures for opening a new account, closing an account, and a function to get the total balance of a customer across all accounts.*/
+//Scenario 1: Group all customer-related procedures and functions into a package.
+//o	Question: Create a package CustomerManagement with procedures for adding a new customer, updating customer details, and a function to get customer balance.
 
 CREATE OR REPLACE PACKAGE CustomerManagement IS
     PROCEDURE AddNewCustomer(
@@ -78,6 +72,10 @@ CREATE OR REPLACE PACKAGE BODY CustomerManagement IS
     END GetCustomerBalance;
 END CustomerManagement;
 /
+
+
+//Scenario 2: Create a package to manage employee data.
+//o	Question: Write a package EmployeeManagement with procedures to hire new employees, update employee details, and a function to calculate annual salary.
 CREATE OR REPLACE PACKAGE EmployeeManagement IS
     PROCEDURE HireEmployee(
         p_EmployeeID NUMBER,
@@ -99,6 +97,7 @@ CREATE OR REPLACE PACKAGE EmployeeManagement IS
     FUNCTION CalculateAnnualSalary(p_EmployeeID NUMBER) RETURN NUMBER;
 END EmployeeManagement;
 /
+
 CREATE OR REPLACE PACKAGE BODY EmployeeManagement IS
     PROCEDURE HireEmployee(
         p_EmployeeID NUMBER,
@@ -155,6 +154,9 @@ CREATE OR REPLACE PACKAGE BODY EmployeeManagement IS
     END CalculateAnnualSalary;
 END EmployeeManagement;
 /
+
+//Scenario 3: Group all account-related operations into a package.
+//o	Question: Create a package AccountOperations with procedures for opening a new account, closing an account, and a function to get the total balance of a customer across all accounts.
 CREATE OR REPLACE PACKAGE AccountOperations IS
     PROCEDURE OpenNewAccount(
         p_AccountID NUMBER,
