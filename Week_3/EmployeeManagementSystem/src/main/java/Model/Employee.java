@@ -2,9 +2,12 @@ package Model;
 
 import jakarta.persistence.*;
 
+
 import lombok.Data;
-
-
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+import org.hibernate.annotations.BatchSize;
 
 @Entity
 @Table(name = "employees")
@@ -13,7 +16,10 @@ import lombok.Data;
 	@NamedQuery(name = "Employee.findByEmail",
             query = "SELECT e FROM Employee e WHERE e.email = :email")
 })
-
+@DynamicUpdate // Only updated columns will be included in the SQL UPDATE statement
+@SQLDelete(sql = "UPDATE employees SET deleted = true WHERE id = ?") // Soft delete
+@Where(clause = "deleted = false") // Filter condition for queries
+@BatchSize(size = 50) // Batch size for fetching
 public class Employee extends Auditable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +31,15 @@ public class Employee extends Auditable{
     @ManyToOne
     @JoinColumn(name = "department_id")
     private Department department;
+    @Column(name = "deleted")
+    private boolean deleted = false;
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
 
 	public Long getId() {
 		return id;

@@ -1,6 +1,6 @@
 package controller;
 
-
+import java.util.*;
 import Model.Employee;
 import service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,10 @@ public class EmployeeController {
         Employee savedEmployee = employeeService.saveEmployee(employee);
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }
-
+    @PostMapping("/batch")
+    public void batchInsert(@RequestBody List<Employee> employees) {
+        employeeService.batchInsertEmployees(employees);
+    }
     @GetMapping("/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
         return employeeService.getEmployeeById(id)
