@@ -4,6 +4,8 @@ import Model.Employee;
 import Repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.Optional;
 
@@ -43,5 +45,8 @@ public class EmployeeService {
             return true;
         }
         return false;
+    }
+    public Page<Employee> getEmployeesByDepartment(Long departmentId, Pageable pageable) {
+        return employeeRepository.findByDepartmentId(departmentId, pageable);
     }
 }

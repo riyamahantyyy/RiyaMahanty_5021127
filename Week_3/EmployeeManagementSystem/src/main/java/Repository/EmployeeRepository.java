@@ -6,7 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 @Repository
@@ -23,4 +24,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     @Query(name = "Employee.findByEmail")
     Employee findByEmail(String email);
     
+ // Method to find employees by department with pagination
+    Page<Employee> findByDepartmentId(Long departmentId, Pageable pageable);
 }
