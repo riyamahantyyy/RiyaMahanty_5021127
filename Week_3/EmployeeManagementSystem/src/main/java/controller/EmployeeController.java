@@ -27,7 +27,12 @@ public class EmployeeController {
                 .map(employee -> new ResponseEntity<>(employee, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-
+    
+    @GetMapping("/email/{email}")
+    public Employee getEmployeeByEmail(@PathVariable String email) {
+        return employeeService.getEmployeeByEmail(email);
+    }
+    
     @GetMapping
     public ResponseEntity<Iterable<Employee>> getAllEmployees() {
         return new ResponseEntity<>(employeeService.getAllEmployees(), HttpStatus.OK);

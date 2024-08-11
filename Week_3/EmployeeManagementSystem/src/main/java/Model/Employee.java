@@ -1,11 +1,19 @@
 package Model;
 
 import jakarta.persistence.*;
+
 import lombok.Data;
+
+
 
 @Entity
 @Table(name = "employees")
 @Data
+@NamedQueries({
+	@NamedQuery(name = "Employee.findByEmail",
+            query = "SELECT e FROM Employee e WHERE e.email = :email")
+})
+
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
