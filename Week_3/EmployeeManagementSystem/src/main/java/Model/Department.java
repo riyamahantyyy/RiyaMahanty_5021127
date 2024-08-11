@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 @Table(name = "departments")
 @Data
-public class Department {
+public class Department extends Auditable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

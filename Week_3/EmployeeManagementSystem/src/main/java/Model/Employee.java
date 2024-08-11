@@ -14,7 +14,7 @@ import lombok.Data;
             query = "SELECT e FROM Employee e WHERE e.email = :email")
 })
 
-public class Employee {
+public class Employee extends Auditable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
