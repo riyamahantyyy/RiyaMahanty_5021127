@@ -43,7 +43,6 @@ public class BookController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-
     @PostMapping
     public ResponseEntity<Book> addBook(@RequestBody Book book) {
         bookList.add(book);
