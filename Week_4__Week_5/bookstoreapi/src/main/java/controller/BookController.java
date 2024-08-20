@@ -10,9 +10,11 @@ import java.util.List;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/books")
+@RequestMapping(value = "/books", produces = { "application/json", "application/xml" })
 public class BookController {
 
     private List<Book> bookList = new ArrayList<>();
