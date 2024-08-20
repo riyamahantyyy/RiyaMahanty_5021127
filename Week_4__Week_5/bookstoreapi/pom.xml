@@ -31,6 +31,11 @@
 	</properties>
 	<dependencies>
 		<dependency>
+    		<groupId>javax.validation</groupId>
+    		<artifactId>validation-api</artifactId>
+    		<version>2.0.0.Final</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
@@ -55,6 +60,21 @@
     		<groupId>org.mapstruct</groupId>
     		<artifactId>mapstruct</artifactId>
     		<version>1.5.2.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com._01_springcore</groupId>
+			<artifactId>springcore</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.employee</groupId>
+			<artifactId>EmployeeManagementSystem</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-hateoas</artifactId>
 		</dependency>
 
 	</dependencies>

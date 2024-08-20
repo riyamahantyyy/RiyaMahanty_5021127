@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
+
 
 @RestController
 @RequestMapping("/books")
@@ -19,10 +22,12 @@ public class BookController {
         return new ResponseEntity<>(bookList, HttpStatus.OK);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Book> getBookById(@PathVariable Long id) {
+    public ResponseEntity<EntityModel<Book>> getBookById(@PathVariable Long id) {
         for (Book book : bookList) {
             if (book.getId().equals(id)) {
-                return new ResponseEntity<>(book, HttpStatus.OK);
+                EntityModel<Book> model = EntityModel.of(book);
+                model.add(WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(BookController.class).getAllBooks()).withRel("all-books"));
+                return new ResponseEntity<>(model, HttpStatus.OK);
             }
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
