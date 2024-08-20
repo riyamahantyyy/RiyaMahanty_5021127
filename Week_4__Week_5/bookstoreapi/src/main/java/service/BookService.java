@@ -14,6 +14,12 @@ public class BookService {
     public List<Book> getAllBooks() {
         return books;
     }
+    public List<Book> searchBooks(String title, String author) {
+        return books.stream()
+                .filter(book -> (title == null || book.getTitle().contains(title)) &&
+                        (author == null || book.getAuthor().contains(author)))
+                .collect(Collectors.toList());
+    }
 
     public Book createBook(Book book) {
         book.setId((long) (books.size() + 1));
@@ -39,4 +45,8 @@ public class BookService {
     private Book findBookById(Long id) {
         return books.stream().filter(book -> book.getId().equals(id)).findFirst().orElse(null);
     }
+    public Book getBookById(Long id) {
+        return findBookById(id);
+    }
+
 }
