@@ -2,13 +2,13 @@ package model;
 
 import lombok.AllArgsConstructor;
 
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -93,5 +93,10 @@ public class Book {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Book(long l, String string, String string2, double d, String string3) {
+		// TODO Auto-generated constructor stub
+	}
+
+	
 	
 }
